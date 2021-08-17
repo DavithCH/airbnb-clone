@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import InfoCard from '../components/InfoCard';
 import Map from '../components/Map';
+import { AdjustmentsIcon } from '@heroicons/react/solid';
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -35,6 +36,7 @@ function Search({ searchResults }) {
   return (
     <div>
       <Header
+        className="placeholder-opacity-0"
         placeholder={`${location.toUpperCase()} | ${dateRange} | ${numberOfGuests}`}
       />
       <main className="flex">
@@ -51,8 +53,11 @@ function Search({ searchResults }) {
             <p className="button_1">Type of place</p>
             <p className="button_1">Price</p>
             <p className="button_1">Room and bed</p>
+            <p className="button_1">Star</p>
             <p className="button_1">More filter</p>
           </div>
+
+          <AdjustmentsIcon className=" sm:hidden h-6 cursor-pointer hover:text-red-500" />
 
           <div className="flex flex-col">{renderedSearchResults}</div>
         </section>
