@@ -123,10 +123,16 @@ const Header = ({ placeholder }) => {
           </div>
 
           <div className="flex">
-            <button className="flex-grow" onClick={resetInput}>
+            <button
+              className="flex-grow button_1 hover:bg-red-300 hover:text-gray-900 hover:border-none"
+              onClick={resetInput}
+            >
               Cancel
             </button>
-            <button className="flex-grow" onClick={() => handleClickSearch()}>
+            <button
+              className="flex-grow button_1 hover:bg-red-300 hover:text-gray-900 hover:border-none"
+              onClick={() => handleClickSearch()}
+            >
               Search
             </button>
           </div>

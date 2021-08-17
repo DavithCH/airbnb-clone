@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import InfoCard from '../components/InfoCard';
+import Map from '../components/Map';
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -17,14 +18,16 @@ function Search({ searchResults }) {
   const renderedSearchResults = searchResults.map((item) => {
     return (
       <InfoCard
+        key={item.title}
         img={item.img}
         description={item.description}
         lat={item.lat}
         long={item.log}
         price={item.price}
-        star={item.start}
+        star={item.star}
         title={item.title}
         total={item.total}
+        location={item.location}
       />
     );
   });
@@ -50,6 +53,12 @@ function Search({ searchResults }) {
             <p className="button_1">Room and bed</p>
             <p className="button_1">More filter</p>
           </div>
+
+          <div className="flex flex-col">{renderedSearchResults}</div>
+        </section>
+
+        <section className="hidden xl:inline-flex min-w-[600px]">
+          <Map searchResults={searchResults} />
         </section>
       </main>
       <Footer />
